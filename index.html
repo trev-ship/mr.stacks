@@ -2,157 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nagaba Timothy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nagaba Timothy </title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #001f3f;
+      background: #0b0c10;
       color: white;
-      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
-    header {
-      background-color: #003366;
-      padding: 30px 10px;
-      text-align: center;
-      animation: fadeInDown 1.2s ease;
+    .scene {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2em;
+    #spiderman {
+      position: absolute;
+      top: 20%;
+      left: -150px; /* Start offscreen */
+      width: 120px;
+      transform-origin: top center;
+      animation: swingAcross 5s ease-in-out infinite;
+      z-index: 1;
     }
 
-    .image-banner {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      animation: fadeIn 1.5s ease;
-    }
-
-    main {
-      padding: 20px;
-      text-align: center;
-      animation: slideUp 1.5s ease;
-    }
-
-    section {
-      margin-bottom: 20px;
-    }
-
-    .controls {
-      margin-top: 20px;
-    }
-
-    .controls button {
-      background-color: #0055a5;
-      color: white;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .controls button:hover {
-      background-color: #003f7d;
-    }
-
-    footer {
-      background-color: #003366;
-      text-align: center;
-      padding: 15px;
-      animation: fadeInUp 2s ease;
-    }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5em;
+    @keyframes swingAcross {
+      0% {
+        left: -150px;
+        transform: rotate(-30deg);
       }
+      25% {
+        transform: rotate(0deg);
+      }
+      50% {
+        left: 50%;
+        transform: rotate(30deg);
+      }
+      75% {
+        transform: rotate(0deg);
+      }
+      100% {
+        left: 100vw;
+        transform: rotate(-30deg);
+      }
+    }
+
+    .info {
+      position: absolute;
+      bottom: 60px;
+      left: 20px;
+      max-width: 90%;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #e74c3c;
+    }
+
+    p {
+      margin: 5px 0;
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    .copyright {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      font-size: 0.9em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+  <div class="scene">
+    <img id="spiderman" src="https://i.imgur.com/CV6rRwL.png" alt="Nagaba Timothy" />
+    
+    <div class="info">
+      <h1>Meet Nagaba Timothy 3M</h1>
+      <p><strong>Location:</strong> kabale,Uganda</p>
+      <p><strong>School:</strong> Mbarara high school</p>
+      <p><strong>Hobby:</strong>Breakdancing</p>
+      <p><strong>Description:</strong>Dripping with finesse.</p>
+    </div>
 
-  <header>
-    <h1>Futuristic  Lifestyle</h1>
-    <p> location:KABALE</p>
-    <P>School:Mbarara High School</P>
-  </header>
+    <div class="copyright">
+      &copy; 2025 Nagaba Timothy. All rights reserved.
+    </div>
+  </div>
 
-  <!-- Image from iStock -->
-  <img 
-    <src="https://media.istockphoto.com/id/1129781738/photo/futuristic-driverless-cars-on-the-elevated-expressway.jpg?s=612x612&w=0&k=20&c=7R7vQnMxKk9CRgxWgPLw5EwYbyR0cOByIx8jGnkZqkg=" 
-    alt="Futuristic Driverless Cars" 
-    class="image-banner" 
-  />
-
-  <main>
-    <section>
-      <h2> Explore the Future</h2>
-      <p>Driverless technology is shaping the way we live, commute, and build our cities. This page explores the fusion of smart infrastructure and digital lifestyle.</p>
-    </section>
-
-    <section>
-      <h2>TIMMO.INC</h2>
-      <p>Dripping with finesse.</p>
-
-      <!-- Audio Element -->
-      <audio id="bgMusic" loop>
-        <source src="https://api.soundcloud.com/tracks/itsjaydonlewis-gtamapiano/stream" type="audio/mpeg">
-        
-      </audio>
-
-      <!-- Controls -->
-      <div class="controls">
-        <button onclick="playMusic()">▶️ Play</button>
-        <button onclick="pauseMusic()">⏸️ Pause</button>
-        <button onclick="toggleMute()">🔇 Mute/Unmute</button>
-      </div>
-    </section>
-  </main>
-
+  <audio id="swingSound" src="https://freesound.org/data/previews/341/341695_624234-lq.mp3" preload="auto"></audio>
 
   <script>
-    const audio = document.getElementById("bgMusic");
+    const swingSound = document.getElementById('swingSound');
+    const spidey = document.getElementById('spiderman');
 
-    function playMusic() {
-      audio.play();
-    }
-
-    function pauseMusic() {
-      audio.pause();
-    }
-
-    function toggleMute() {
-      audio.muted = !audio.muted;
-    }
+    spidey.addEventListener('animationiteration', () => {
+      swingSound.currentTime = 0;
+      swingSound.play();
+    });
   </script>
-
 </body>
-  &copyNagaba Timothy
 </html>
